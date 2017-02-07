@@ -47,9 +47,8 @@ public class Application {
          {
        
 			cities[index(cities, enter)] = null;
+			enterTheCity1();
 			
-		
-										enterTheCity1();
 		} else enterTheCity ();
 }
 	
@@ -69,8 +68,8 @@ public class Application {
 		if (comparison(cities, enter)==true) 
         { 
 			cities[index(cities, enter)] = null;
+			enterTheCity();
 			
-										enterTheCity();
 		} else enterTheCity1 ();
 		
 }
@@ -79,9 +78,8 @@ public class Application {
 	
 	
 	public static boolean comparison (String[] cities, String enter) throws IOException {
+		
 		Application.cities = cities;
-		
-		
 		
 		for (int i=0; i < cities.length; i++) {
 			
@@ -92,16 +90,14 @@ public class Application {
 				
 				return true;
 				
-				
 				}
 		}
 		return false;
 	}
 	
 	public static int index (String[] cities, String enter) throws IOException {
-		Application.cities = cities;
 		
-	
+		Application.cities = cities;
 		
 		for (int i=0; i < cities.length; i++) {
 			
@@ -113,5 +109,3 @@ public class Application {
 		}
 		return 1;
 	}
-	
-}
