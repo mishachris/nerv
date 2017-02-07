@@ -1,0 +1,117 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.omg.Messaging.SyncScopeHelper;
+
+public class Application {
+
+	public static void main(String[] args) throws IOException  {
+		
+		
+	
+		
+	
+	enterTheCity ();
+	}
+	public static String [] cities =  {"Москва",
+		     "Санкт-Петербург",
+		     "Саратов",
+		     "Тамбов",
+		     "Анапа",
+		     "Алушта",
+		     "Вологда",
+		     "Рак",
+		     "Киров",
+		     "Краков",
+		     "Архангельск",
+		     "Канберра"};
+	
+	
+	
+	
+	
+	public static void enterTheCity () throws IOException {
+		System.out.print("Игрок 1, Ваш ход: ");
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String enter = reader.readLine();
+		if (enter.equals("Сдаюсь")) { System.out.println("Игра окончена. Победил Игрок2.");
+		
+		}
+		String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
+		
+		
+		
+		if (comparison(cities, enter)==true) 
+         {
+       
+			cities[index(cities, enter)] = null;
+			
+		
+										enterTheCity1();
+		} else enterTheCity ();
+}
+	
+	
+	public static void enterTheCity1 () throws IOException {
+		System.out.print("Игрок 2, Ваш ход: ");
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String enter= reader.readLine();
+        if (enter.equals("Сдаюсь")) { System.out.println("Игра окончена. Победил Игрок1.");
+		
+		}
+		String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
+		System.out.println(first);
+	
+		
+		if (comparison(cities, enter)==true) 
+        { 
+			cities[index(cities, enter)] = null;
+			
+										enterTheCity();
+		} else enterTheCity1 ();
+		
+}
+	
+	
+	
+	
+	public static boolean comparison (String[] cities, String enter) throws IOException {
+		Application.cities = cities;
+		
+		
+		
+		for (int i=0; i < cities.length; i++) {
+			
+			if (enter.equals(cities[i])) {
+				
+				String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
+				System.out.println(cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase());
+				
+				return true;
+				
+				
+				}
+		}
+		return false;
+	}
+	
+	public static int index (String[] cities, String enter) throws IOException {
+		Application.cities = cities;
+		
+	
+		
+		for (int i=0; i < cities.length; i++) {
+			
+			if (enter.equals(cities[i])) {
+				
+				return i;
+				
+				}
+		}
+		return 1;
+	}
+	
+}
