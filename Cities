@@ -12,7 +12,8 @@ public class Application {
 	
 		
 	
-	enterTheCity ();
+	 enterTheCity ();
+	
 	}
 	public static String [] cities =  {"Москва",
 		     "Санкт-Петербург",
@@ -34,9 +35,11 @@ public class Application {
 	public static void enterTheCity () throws IOException {
 		System.out.print("Игрок 1, Ваш ход: ");
 		
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String enter = reader.readLine();
 		if (enter.equals("Сдаюсь")) { System.out.println("Игра окончена. Победил Игрок2.");
+		return;
 		
 		}
 		String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
@@ -59,10 +62,11 @@ public class Application {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String enter= reader.readLine();
         if (enter.equals("Сдаюсь")) { System.out.println("Игра окончена. Победил Игрок1.");
+        return;
 		
 		}
 		String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
-		System.out.println(first);
+		
 	
 		
 		if (comparison(cities, enter)==true) 
@@ -86,7 +90,7 @@ public class Application {
 			if (enter.equals(cities[i])) {
 				
 				String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
-				System.out.println(cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase());
+				
 				
 				return true;
 				
@@ -109,3 +113,6 @@ public class Application {
 		}
 		return 1;
 	}
+	
+}
+		
