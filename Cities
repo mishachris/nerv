@@ -28,85 +28,57 @@ public class Application {
 	
 	public static void enterTheCity () throws IOException {
 		System.out.print("Игрок 1, Ваш ход: ");
-		
-		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String enter = reader.readLine();
 		if (enter.equals("Сдаюсь")) { System.out.println("Игра окончена. Победил Игрок2.");
 		return;
-		
 		}
 		String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
 		
 		
 		
-		if (comparison(cities, enter)==true) 
-         {
-       
-			cities[index(cities, enter)] = null;
+		if (comparison(cities, enter)==true) {
+       			cities[index(cities, enter)] = null;
 			enterTheCity1();
-			
-		} else enterTheCity ();
+			} else enterTheCity ();
 }
-	
 	
 	public static void enterTheCity1 () throws IOException {
 		System.out.print("Игрок 2, Ваш ход: ");
-		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String enter= reader.readLine();
         if (enter.equals("Сдаюсь")) { System.out.println("Игра окончена. Победил Игрок1.");
         return;
-		
 		}
 		String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
-		
-	
-		
 		if (comparison(cities, enter)==true) 
-        { 
-			cities[index(cities, enter)] = null;
+        { cities[index(cities, enter)] = null;
 			enterTheCity();
-			
-		} else enterTheCity1 ();
-		
-}
+			} else enterTheCity1 ();
+		}
 	
 	
 	
 	
 	public static boolean comparison (String[] cities, String enter) throws IOException {
-		
 		Application.cities = cities;
-		
 		for (int i=0; i < cities.length; i++) {
-			
 			if (enter.equals(cities[i])) {
-				
 				String first = cities[index (cities, enter)].substring(cities[index (cities, enter)].length()-1).toUpperCase();
-				
-				
 				return true;
-				
 				}
 		}
 		return false;
 	}
 	
 	public static int index (String[] cities, String enter) throws IOException {
-		
 		Application.cities = cities;
-		
 		for (int i=0; i < cities.length; i++) {
-			
 			if (enter.equals(cities[i])) {
-				
 				return i;
-				
 				}
 		}
 		return 1;
 	}
-	
-}
+	}
 		
